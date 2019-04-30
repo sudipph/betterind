@@ -1,0 +1,161 @@
+.animated .nav-tabs .nav-link.active:after {
+  content: "";
+  height: 35px;
+  width: 20px;
+  position: absolute;
+  /*left: 7px;*/
+  top: -16px;
+  z-index: 9999;
+  background: url(../images/icons8-checkmark-50.png) no-repeat;
+  background-position: center 5px;
+  background-size: auto 25px;
+}
+
+.card_type_custom_field {
+  font-weight: bold;
+  color: #20a8d8;
+}
+
+.form_field {
+  padding: 10px;
+  margin: 10px;
+}
+
+.field_right {
+  margin-top: 10px;
+}
+
+#story_packagediv {
+  display: none;
+}
+
+.title_setting {
+  width: 400px;
+}
+
+.head_border {
+  padding: 20px 0px 10px 20px;
+}
+
+.title_lable {
+  width: 150px;
+}
+
+.form_field,
+.field_left {
+  width: 100%;
+}
+
+.background_image_button {}
+
+..field_right_button {
+  float: left;
+  margin-left: 10px;
+  width: 100px;
+  text-align: right;
+  margin-top: 0px;
+}
+
+.field_right_image {
+  width: 520px;
+  text-align: right;
+}
+
+.remove_button_class {
+  display: none;
+}
+
+.remove_button_class_display {
+  width: 85%;
+  text-align: right;
+}
+
+.cmb-repeat-group-wrap .cmb2-wrap,
+.postbox-container .cmb2-wrap {
+  width: 100%;
+}
+
+.categorydiv {
+  width: 100%;
+}
+
+.quickbytes_class {
+  width: 100%;
+  height: 140px;
+}
+
+#dynamic_form input[type=text].order_width {
+  width: 40px;
+}
+
+.lable_width {
+  width: 20%;
+}
+
+.remove_button {
+  float: left;
+}
+
+#titlediv,
+#wp-content-editor-container,
+.postbox,
+form#tags-filter {
+  position: unset;
+}
+
+/* #tagsdiv-solutions_library {
+  display: none;
+} */
+
+.hide_category_story_package div#taxonomy-story_package {
+  display: none;
+}
+
+.story_packHeading {
+  font-weight: bold;
+  width: 100%;
+  margin: 5px;
+  font-size: 12px;
+}
+
+#solarticle div#taxonomy-solutions_library #solutions_library-add-toggle {
+  display: none;
+}
+
+#solarticle div#taxonomy-solutions_library #solutions_library-tabs li.hide-if-no-js {
+  display: none;
+}
+
+body.post-type-quickbyte #tagsdiv-solutions_library {
+  display: block;
+}
+
+#placementdiv .hide-if-no-js a,
+#newplacement_parent {
+  display: none;
+}
+
+#placementchecklist {
+  margin-top: 10px;
+}
+
+body.taxonomy-placement table.wp-list-table #the-list tr:nth-child(1) .row-actions,
+body.taxonomy-placement table.wp-list-table #the-list tr:nth-child(2) .row-actions,
+body.taxonomy-placement table.wp-list-table #the-list tr:nth-child(3) .row-actions,
+body.taxonomy-placement table.wp-list-table #the-list tr:nth-child(4) .row-actions {
+  display: none !important;
+}
+
+body.taxonomy-placement #bulk-action-selector-top,
+body.taxonomy-placement #doaction {
+  display: none;
+}
+
+body.taxonomy-placement .form-field.term-parent-wrap,
+body.taxonomy-placement .alignleft.actions.bulkactions {
+  display: none;
+}
+
+.errors {
+  color: red;
+}

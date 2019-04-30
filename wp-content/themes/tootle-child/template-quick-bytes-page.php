@@ -1,0 +1,167 @@
+<?php
+/*
+Template Name: Quick Bytes Template
+*/
+    
+
+get_header();
+$page_id = get_queried_object_id();
+$thumb_url = wp_get_attachment_url(get_post_thumbnail_id($page_id));
+//echo $thumb_url;
+//echo get_the_title( $page_id );
+//echo get_post_field('post_content', $page_id);
+//echo $page_id;
+?>
+<style>
+@media (min-width: 768px){
+	footer.footer,
+	div.header-overlay .menu-header.display_quickbytes_option,
+	#sticky_menu_rotate{
+		display:none !important;
+	}
+	span.quick_bytes_title{
+		font-family: 'Cabin-Bold', 'Cabin Bold', 'Cabin';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px;
+    color: #FFFFFF;
+    text-align: center;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+	}
+	.transparent_background_image_quickbytes{
+		    background-color: black;
+			width: 100%;
+			position: fixed;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			opacity: .9;
+	}
+	.background_image_quickbytes{
+		background:url(<?php echo $thumb_url;?>);
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		z-index: 0;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	body.page-template.page-template-template-quick-bytes-page{
+		position:relative;
+	}
+	.top_header_area_for_desktop .middle_image .middle_image_inner{
+		z-index:100;
+	}
+	.title_for_quick_bytes{
+		width: 100%;
+    z-index: 100;
+    color: white;
+	}
+	.inner_quick_bytes_title{
+		    text-align: center;
+	}
+	.top_header_area_for_desktop .middle_image .middle_image_inner {
+    width: 120px !important;
+    height: 110px !important;
+	}
+	.top_header_area_for_desktop .middle_image img {
+    width: 91px !important;
+	}
+	.container.quick-bytes #primary article{
+		    z-index: 101;
+	}
+	.inner_quick_bytes_content{
+		font-family: 'CreteRound-Italic', 'Crete Round Italic', 'Crete Round';
+		font-weight: 400;
+		font-style: italic;
+		font-size: 16px;
+		color: #ccc;
+		text-align: center;
+		margin-top: 20px;
+	}
+}
+</style>
+<div class="transparent_background_image_quickbytes"></div>
+<div class="background_image_quickbytes"></div>
+<div class="title_for_quick_bytes">
+	<div  class="inner_quick_bytes_title">
+	<span class="quick_bytes_title"><?php echo get_the_title( $page_id );?></span>
+	</div>
+	<div  class="inner_quick_bytes_content">
+			<?php echo get_post_field('post_content', $page_id);?>
+	</div>
+</div>
+<?php
+/*
+	Before Content Area
+
+	---------------------------------------
+	Hooked: evolve_primary_container_open() - 10
+	--------------------------------------- */
+
+do_action( 'evolve_before_content_area' );
+
+/*
+	Before Post Title
+
+	---------------------------------------
+	Hooked: evolve_breadcrumbs() - 10
+	--------------------------------------- */
+
+do_action( 'evolve_before_post_title' );
+
+//$category_arr = get_category_by_post();
+//foreach($category_arr as $cat_key=>$cat_value){
+
+	$wpb_all_query = new WP_Query(array(
+		'post_type'=>'quickbyte', 
+		'post_status'=>'publish',
+		'posts_per_page'=>-1));
+
+//echo '<div class="row spotlight_heading" ><div class="col-12"><div class="category_title_spotlight">'.$cat_value.'</div></div></div>';
+	if ( $wpb_all_query->have_posts() ) :
+
+		while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post();
+
+			get_template_part( 'template-parts/post/quickbytes', 'post' );
+
+			/*
+				After Post Content
+
+				---------------------------------------
+				Hooked: evolve_comments_template() - 30
+				--------------------------------------- */
+
+			//do_action( 'evolve_after_post_content' );
+
+		endwhile;
+
+	endif;
+//}
+/*
+   	After Content Area
+
+	---------------------------------------
+	Hooked: evolve_primary_container_close() - 10
+	--------------------------------------- */
+
+do_action( 'evolve_after_content_area' );
+
+/*
+	Sidebars
+
+	---------------------------------------
+	Hooked: evolve_sidebars() - 10
+	--------------------------------------- */
+
+//do_action( 'evolve_sidebars_area' );
+
+/*
+	Footer Area
+	--------------------------------------- */
+
+get_footer();
